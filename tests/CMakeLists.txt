@@ -10,14 +10,14 @@ list(APPEND TEST_INCLUDES
 )
 
 list(APPEND SOURCES 
-    ${CMAKE_SOURCE_DIR}/src/print_hello.c
+    ${CMAKE_SOURCE_DIR}/src/common.c
 )
 
 ############################################################
 # Add testing source files
 ############################################################
 list(APPEND TEST_SOURCES
-    test_sample.c
+    test_common.c
 )
 
 ############################################################

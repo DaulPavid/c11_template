@@ -44,7 +44,7 @@ endif()
 # Append sources
 ############################################################
 list(APPEND APP_SOURCES
-    print_hello.c
+    common.c
     main.c
 )
 
