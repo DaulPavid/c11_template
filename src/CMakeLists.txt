@@ -5,8 +5,8 @@
 ############################################################
 # Add the external project sources
 ############################################################
-set(GL3W_SOURCES ${CMAKE_SOURCE_DIR}/GL/gl3w.c)
-set(GL3W_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/GL)
+set(GL3W_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/GL/gl3w.c)
+set(GL3W_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/GL)
 
 ############################################################
 # Application includes
@@ -46,6 +46,17 @@ endif()
 list(APPEND APP_SOURCES
     common.c
     main.c
+)
+
+############################################################
+# Generate the version file
+############################################################
+include(GetGitRevisionDescription)
+git_describe(GIT_HASH)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/version.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/version.h
 )
 
 ############################################################
