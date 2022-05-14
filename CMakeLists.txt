@@ -25,7 +25,7 @@ endif()
 
 # Available build options
 option(BUILD_TESTS "Build all of the unit tests" ON)
-option(ENABLE_SDL2 "Look for OpenGL and SDL2" OFF)
+option(ENABLE_SDL2 "Look for OpenGL and SDL2" ON)
 
 ####################
 # Project packages #
