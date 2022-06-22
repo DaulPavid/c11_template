@@ -27,66 +27,12 @@ registry_get ()
 }
 
 void
-test_handler (int signal)
-{
-    int index = TEST_INDEX;
-
-    test_t *test = &g_registry.unit_tests[index];
-
-    char *error_msg;
-    switch (signal)
-    {
-        /* Termination request */
-        case SIGTERM:
-            error_msg = strdup("Caught a termination");
-            break;
-
-        /* Invalid memory access */
-        case SIGSEGV:
-            error_msg = strdup("Caught a segmentation fault");
-            break;
-
-        /* External interrupt */
-        case SIGINT:
-            error_msg = strdup("Caught an external interrupt");
-            break;
-
-        /* Abnormal termination */
-        case SIGABRT:
-            error_msg = strdup("Caught a program abort");
-            break;
-
-        /* Bad arithmetic operation (divide by zero) */
-        case SIGFPE:
-            error_msg = strdup("Caught a bad arithmetic operation");
-            break;
-
-        /* Unknown signal */
-        default:
-            error_msg = strdup("Unknown signal");
-    }
-
-    SIGNAL_DEBUG(index, test->name, test->line);
-    SIGNAL_ERROR(index, test->name, error_msg);
-    test->status = -1;
-
-    free(error_msg);
-}
-
-void
 test_registry_init ()
 {
     g_registry.passed = 0;
     g_registry.failed = 0;
     g_registry.num_tests = 0;
-
     g_registry.current_index = 0;
-
-    signal(SIGTERM, test_handler);
-    signal(SIGSEGV, test_handler);
-    signal(SIGINT , test_handler);
-    signal(SIGABRT, test_handler);
-    signal(SIGFPE , test_handler);
 }
 
 void
