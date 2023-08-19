@@ -3,12 +3,6 @@
 #
 
 ############################################################
-# Add the external project sources
-############################################################
-set(GL3W_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/GL/gl3w.c)
-set(GL3W_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/GL)
-
-############################################################
 # Application includes
 ############################################################
 list(APPEND APP_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR})
@@ -24,21 +18,19 @@ list(APPEND APP_LIBRARIES
 ############################################################
 # Add the external project sources
 ############################################################
-if(ENABLE_SDL2)
-    list(APPEND APP_EXTERNAL_SOURCES
-        ${GL3W_SOURCES}
-    )
-    list(APPEND APP_INCLUDES
-        ${OPENGL_INCLUDE_DIR}
-        ${GL3W_INCLUDE_DIR}
-        ${SDL2_INCLUDE_DIR}
-    )
-    list(APPEND APP_LIBRARIES
-        ${OPENGL_LIBRARIES}
-        ${SDL2_LIBRARIES}
-        ${SDL2_MAIN_LIBRARY}
-    )
-endif()
+list(APPEND APP_EXTERNAL_SOURCES
+    ${GL3W_SOURCES}
+)
+list(APPEND APP_INCLUDES
+    ${OPENGL_INCLUDE_DIR}
+    ${GL3W_INCLUDE_DIR}
+    ${SDL2_INCLUDE_DIR}
+)
+list(APPEND APP_LIBRARIES
+    ${OPENGL_LIBRARIES}
+    ${SDL2_LIBRARIES}
+    ${SDL2_MAIN_LIBRARY}
+)
 
 ############################################################
 # Append sources

@@ -10,7 +10,9 @@
 #include "common.h"
 #include "version.h"
 
+#include <GL/gl3w.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
 #define GIT_HASH() (git_hash())
 #define WINDOW_W (1024)
@@ -44,7 +46,7 @@ main (int argc, char* argv[])
     // Initialize SDL, the window, and the renderer
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
 
-    SDL_Window *window = SDL_CreateWindow(window_title, 0, 0,
+    SDL_Window *window = SDL_CreateWindow(window_title, 100, 100,
                                           WINDOW_W, WINDOW_H,
                                           SDL_WINDOW_OPENGL);
 

@@ -25,20 +25,18 @@ endif()
 
 # Available build options
 option(BUILD_TESTS "Build all of the unit tests" ON)
-option(ENABLE_SDL2 "Look for OpenGL and SDL2" ON)
 
 ####################
 # Project packages #
 ####################
-if(ENABLE_SDL2)
-    set(OpenGL_GL_PREFERENCE "GLVND")
-    find_package(OpenGL)
-    find_package(SDL2)
-endif()
+set(OpenGL_GL_PREFERENCE "GLVND")
+find_package(OpenGL)
+find_package(SDL2)
 
 ###########################
 # Project sub-directories #
 ###########################
+add_subdirectory(deps/gl3w)
 add_subdirectory(src)
 
 if(BUILD_TESTS)

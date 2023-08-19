@@ -7,7 +7,7 @@ and CMake files to bootstrap new C projects.
 
 * CMake [>=3.1.x]
 * Modern compiler (GCC, clang)
-* Optional: OpenGL and SDL2
+* OpenGL and SDL2
 
 ## Building (Linux)
 
